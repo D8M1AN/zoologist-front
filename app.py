@@ -12,7 +12,7 @@ import pandas as pd
 
 
 island = st.selectbox(
-    label='Select:',
+    label='Island',
     options=[
             'Biscoe',
             "Dream",
@@ -21,45 +21,45 @@ island = st.selectbox(
 )
 
 sex = st.selectbox(
-    label='',
+    label='Sex',
     options=['Male', 'Female']
 )
 
 bill_len = st.number_input(
-    label='(mm)',
+    label='Bill Length (mm)',
     key=1,
     min_value=0,
     max_value=550
 )
 
 bill_depth = st.number_input(
-    label='(mm)',
+    label='Bill Depth (mm)',
     key=2,
     min_value=0,
     max_value=500
 )
 
 flipper_len = st.number_input(
-    label='(mm)',
+    label='Flipper Length(mm)',
     key=3,
     min_value=0,
     max_value=500
 )
 
 bm = st.number_input(
-    label='(g)',
+    label='Body Mass (g)',
     key=4,
     min_value=0
 )
 
-data = [
-    island,
-    bill_len,
-    bill_depth,
-    flipper_len,
-    bm,
-    sex
-]
+data = pd.DataFrame([{
+    'island': island,
+    'bill_length_mm': bill_len,
+    'bill_depth_mm': bill_depth,
+    'flipper_length_mm': flipper_len,
+    'body_mass_g': bm,
+    'sex': sex
+}])
 
 if st.button('Predict Bird'):
 
